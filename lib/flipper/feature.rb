@@ -99,8 +99,8 @@ module Flipper
     # Public: Check if a feature is enabled for zero or more actors.
     #
     # Returns true if enabled, false if not.
-    def enabled?(*actors)
-      actors = actors.flatten.compact.map { |actor| Types::Actor.wrap(actor) }
+    def enabled?(actors=nil)
+      actors = Array(actors).compact.map { |actor| Types::Actor.wrap(actor) }
       actors = nil if actors.empty?
 
       # thing is left for backwards compatibility
